@@ -1,0 +1,4 @@
+art assets: Pixezy 
+font: https://opengameart.org/content/font-retrospace
+jump sound: https://opengameart.org/content/8-bit-jump-1 
+background music: https://opengameart.org/content/chiptune-run-jump-duck
