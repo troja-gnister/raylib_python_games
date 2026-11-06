@@ -56,17 +56,11 @@ while not window_should_close():
 
     # collision
     dino_rect = Rectangle(dino_pos.x, dino_pos.y, dino_texture.width * 5, dino_texture.height * 5)
-    # HINT 1: Lines 46 and 54 show how you visit every obstacle. You need that same
-    #         kind of loop here, wrapped around the two lines below.
-    # HINT 2: cactus_x_pos is always 1000 and never moves. Which variable holds the
-    #         position of the obstacle the loop is currently looking at?
-    # HINT 3: That variable is a Vector2, so it has both .x and .y. Use both for the
-    #         rectangle instead of hard-coding floor_line.
-    # HINT 4: Once you indent cactus_rect and the if-check inside the loop, exit()
-    #         runs as soon as ANY obstacle hits the dino.
-    cactus_rect = Rectangle(cactus_x_pos, floor_line, cactus_texture.width * 5, cactus_texture.height * 5)
-    if check_collision_recs(dino_rect, cactus_rect):
-        exit()
+
+    for obstacle_pos in obstacle_list:
+        obstacle_rect = Rectangle(obstacle_pos.x, obstacle_pos.y, cactus_texture.width * 5, cactus_texture.height * 5)
+        if check_collision_recs(dino_rect, obstacle_rect):
+            exit()
 
     score_string = f'score: {int(get_time())}'
     text_width = measure_text_ex(custom_font, score_string, 40, 1).x
